@@ -77,23 +77,9 @@ app.post("/webhook", async (req, res) => {
           {
             messaging_product: "whatsapp",
             to: contacts,
-            type: "interactive",
-            interactive: {
-              type: "button",
-              body: {
-                text: `Thank you for providing your feedback! It helps us improve our service. \n\nPlease could you rate and review us on google. It helps us grow and continue to deliver impactful work. \nhttps://maps.app.goo.gl/G4Z55yho36w46Amt7?g_st=iw`
-              },
-              action: {
-                buttons: [
-                  {
-                    type: "reply",
-                    reply: {
-                      id: "acknowledge_feedback",
-                      title: "Acknowledge"
-                    }
-                  }
-                ]
-              }
+            type: "text",
+            text: {
+              body: `Thank you for providing your feedback! It helps us improve our service.\n\nPlease could you rate and review us on google. It helps us grow and continue to deliver impactful work.\nhttps://maps.app.goo.gl/G4Z55yho36w46Amt7?g_st=iw`
             }
           }
         );
@@ -138,21 +124,9 @@ app.post("/webhook", async (req, res) => {
             messaging_product: "whatsapp",
             recipient_type: "individual",
             to: contacts,
-            type: "interactive",
-            interactive: {
-              type: "button",
-              body: { text: "What could we do to make your experience ten times better?" },
-              action: {
-                buttons: [
-                  {
-                    type: "reply",
-                    reply: {
-                      id: "thanks_feedback",
-                      title: "Acknowledge",
-                    },
-                  },
-                ]
-              },
+            type: "text",
+            text: {
+              body: "What could we do to make your experience ten times better?"
             },
             context: { message_id: messages.id },
           }
